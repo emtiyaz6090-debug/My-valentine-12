@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Promise Day 💗</title>
+
+<style>
+:root{
+  --pink:#ff8fb1;
+  --pink-soft:#ffd1e3;
+  --glass:rgba(255,255,255,0.25);
+  --blur:blur(18px);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#ffb6d5,#ffddee);
+  overflow:hidden;
+  color:#fff;
+}
+
+/* glass card */
+.glass{
+  background:var(--glass);
+  backdrop-filter:var(--blur);
+  -webkit-backdrop-filter:var(--blur);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.3);
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+/* slider */
+.slider{
+  display:flex;
+  width:700%;
+  height:100vh;
+  transition:transform 1s ease;
+}
+.slide{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+/* login */
+.login-box{
+  width:320px;
+  padding:30px;
+  text-align:center;
+}
+.login-box h2{
+  margin-bottom:20px;
+}
+.login-box input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:12px;
+}
+.login-box button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:var(--pink);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+.error{
+  margin-top:10px;
+  color:#fff;
+  font-size:14px;
+}
+
+/* wish cards */
+.cards{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.card{
+  width:260px;
+  padding:20px;
+  animation:fadeUp 1.2s ease forwards;
+  opacity:0;
+}
+.card:nth-child(1){animation-delay:.2s}
+.card:nth-child(2){animation-delay:.6s}
+.card:nth-child(3){animation-delay:1s}
+
+/* promises */
+.promises p{
+  font-size:20px;
+  margin:15px 0;
+  opacity:0;
+  animation:fade 1.2s forwards;
+}
+.promises p:nth-child(1){animation-delay:.3s}
+.promises p:nth-child(2){animation-delay:.8s}
+.promises p:nth-child(3){animation-delay:1.3s}
+
+/* music */
+.music{
+  width:320px;
+  text-align:center;
+}
+.music audio{
+  width:100%;
+  margin:15px 0;
+}
+.lyrics{
+  font-size:16px;
+  line-height:1.6;
+}
+
+/* hearts bg */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:24px;
+  animation:float 8s linear infinite;
+  opacity:.6;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);opacity:0}
+  10%{opacity:.6}
+  100%{transform:translateY(-110vh);opacity:0}
+}
+@keyframes fadeUp{
+  from{transform:translateY(30px);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+@keyframes fade{
+  to{opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<div class="slider" id="slider">
+
+  <!-- Slide 1 Login -->
+  <section class="slide">
+    <div class="glass login-box">
+      <h2>Promise Day 💗</h2>
+      <input type="text" id="user" placeholder="User ID">
+      <input type="password" id="pass" placeholder="Password">
+      <button onclick="login()">Login 💕</button>
+      <div class="error" id="error"></div>
+    </div>
+  </section>
+
+  <!-- Slide 2 -->
+  <section class="slide">
+    <div class="cards">
+      <div class="glass card">💖 Happy Promise Day<br>আমি সবসময় তোমার পাশে থাকবো 🍎</div>
+      <div class="glass card">🌸 তুমি আমার আজ আর সব আগামীর গল্প 🍎</div>
+      <div class="glass card">✨ প্রতিদিন তোমাকেই বেছে নেব 💕</div>
+    </div>
+  </section>
+
+  <!-- Slide 3 -->
+  <section class="slide">
+    <div class="cards">
+      <div class="glass card">💗 তোমার হাসি আমার শান্তি 🍎</div>
+      <div class="glass card">🌷 তোমার চোখে জল আসতে দেবো না 🍎</div>
+    </div>
+  </section>
+
+  <!-- Slide 4 -->
+  <section class="slide">
+    <div class="glass promises">
+      <p>🤍 Promise করছি—হাতটা কখনো ছাড়বো না 🍎</p>
+      <p>🌸 কষ্টে আমি তোমার শক্তি হবো 🍎</p>
+      <p>💖 ভালোবাসায় আমি তোমার ঘর হবো 🍎</p>
+    </div>
+  </section>
+
+  <!-- Slide 5 -->
+  <section class="slide">
+    <div class="glass promises">
+      <p>✨ যত ঝড়ই আসুক, আমি থাকবো 🍎</p>
+      <p>💕 Forever মানে তুমি আর আমি 🍎</p>
+    </div>
+  </section>
+
+  <!-- Slide 6 Music -->
+  <section class="slide">
+    <div class="glass music">
+      <h3>Perfect 🎵</h3>
+      <audio controls>
+        <source src="perfect.mp3" type="audio/mpeg">
+      </audio>
+      <div class="lyrics">
+        Darling, you look perfect tonight 💖<br>
+        Holding you close in soft pink light 🍎<br>
+        You are my today, my always ✨
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 7 -->
+  <section class="slide">
+    <div class="glass">
+      <h2>Forever Promise 💍</h2>
+      <p style="margin-top:15px">This promise starts with you & ends with us 🍎💗</p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+let index=0;
+const slider=document.getElementById("slider");
+
+function login(){
+  const u=document.getElementById("user").value.trim();
+  const p=document.getElementById("pass").value.trim();
+  const err=document.getElementById("error");
+
+  if(u==="emti tahi" && p==="I love you"){
+    index=1;
+    slider.style.transform=`translateX(-${index*100}vw)`;
+    autoSlide();
+  }else{
+    err.innerHTML="Oops! Love password vul 💔🍎";
+  }
+}
+
+function autoSlide(){
+  setInterval(()=>{
+    if(index<6){
+      index++;
+      slider.style.transform=`translateX(-${index*100}vw)`;
+    }
+  },5000);
+}
+
+/* hearts */
+for(let i=0;i<20;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💗";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=6+Math.random()*6+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
